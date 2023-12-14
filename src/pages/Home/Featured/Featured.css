@@ -1,0 +1,5 @@
+/* bg-[url('/img/hero-pattern.svg')] */
+.featured-item{
+    background-image: url(../../../assets/home/featured.jpg);
+   
+}
