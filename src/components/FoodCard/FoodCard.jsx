@@ -13,7 +13,7 @@ const FoodCard = ({ item }) => {
         <p>{recipe}</p>
         <div className="card-actions justify-center">
           <button className="btn btn-primary">Add To Cart</button>
-        </div>
+         </div>
       </div>
     </div>
   );
