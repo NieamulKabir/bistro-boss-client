@@ -12,7 +12,7 @@ const FoodCard = ({ item }) => {
         <h2 className="text-xl font-bold">{name}</h2>
         <p>{recipe}</p>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary">Add To Cart</button>
+          <button className="btn btn-outline border-0 border-b-4  bg-gray-300 uppercase text-orange-400">Add To Cart</button>
          </div>
       </div>
     </div>
@@ -20,3 +20,4 @@ const FoodCard = ({ item }) => {
 };
 
 export default FoodCard;
+ 
