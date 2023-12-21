@@ -16,6 +16,18 @@ const SignUp = () => {
           <form className="card-body">
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="input input-bordered"
+                
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -44,10 +56,10 @@ const SignUp = () => {
             </div>
           </form>
 
-          <p>
+          <p className="text-center mb-8">
             {" "}
             <small>
-              Have an account? <Link to="/login">Click Here</Link>
+              Have an account? <Link className="text-orange-500 font-semibold" to="/login">Click Here</Link>
             </small>
           </p>
         </div>

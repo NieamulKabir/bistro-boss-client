@@ -11,7 +11,7 @@ const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
 
-const {signIn}=useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -24,11 +24,10 @@ const {signIn}=useContext(AuthContext)
     const password = form.password.value;
 
     console.log(email, password);
-    signIn(email,password)
-    .then(result =>{
-      const user = result.user 
+    signIn(email, password).then((result) => {
+      const user = result.user;
       console.log(user);
-    })
+    });
   };
 
   const handleValidateCaptcha = () => {
@@ -110,7 +109,15 @@ const {signIn}=useContext(AuthContext)
             </div>
           </form>
 
-          <p> <small>New Here? <Link to='/signup'>Create an account</Link></small></p>
+          <p className="text-center mb-8">
+            {" "}
+            <small>
+              New Here?{" "}
+              <Link className="text-orange-500 font-semibold" to="/signup">
+                Create an account
+              </Link>
+            </small>
+          </p>
         </div>
       </div>
     </div>
