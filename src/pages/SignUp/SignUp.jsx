@@ -1,23 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("user profile updated");
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User create successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
     });
   };
   return (
@@ -49,6 +66,23 @@ const SignUp = () => {
                   className="input input-bordered"
                 />
                 {errors.name && (
+                  <span className="text-red-600 mt-1">
+                    This Field is Required
+                  </span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">PhotoURL</span>
+                </label>
+                <input
+                  {...register("photoURL", { required: true })}
+                  type="text"
+                  name="photoURL"
+                  placeholder="PhotoURL"
+                  className="input input-bordered"
+                />
+                {errors.photoURL && (
                   <span className="text-red-600 mt-1">
                     This Field is Required
                   </span>
