@@ -32,6 +32,9 @@ import SignUo from "../pages/SignUp/SignUp";
         {
           path:'/signup',
           element:<SignUo />
+        },
+        {
+          
         }
       ]
     },
