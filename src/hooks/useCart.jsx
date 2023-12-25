@@ -5,7 +5,12 @@ import { AuthContext } from "../providers/AuthProvider";
 const useCart = () => {
   const { user } = useContext(AuthContext);
 
-  const { isLoading, data: cart = [] } = useQuery({
+  const {
+    refetch,
+    isLoading,
+
+    data: cart = [],
+  } = useQuery({
     queryKey: ["carts", user?.email],
     queryFn: async () => {
       const response = await fetch(
@@ -14,7 +19,7 @@ const useCart = () => {
       return response.json();
     },
   });
-  return [cart, isLoading];
+  return [cart, isLoading, refetch];
 };
 
 export default useCart;
