@@ -37,9 +37,6 @@ const DashBoard = () => {
             </NavLink>
           </li>
 
-          
-
-
           <li>
             <NavLink to="/dashboard/reservation">
               <FaCalendarAlt />
@@ -57,14 +54,6 @@ const DashBoard = () => {
               My Cart
             </NavLink>
           </li>
-
-
-
-
-
-
-
-
 
           <div className="divider"></div>
           <li>
