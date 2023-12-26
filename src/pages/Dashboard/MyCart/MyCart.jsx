@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
+import { MdDelete } from "react-icons/md";
 
 const MyCart = () => {
   const [cart] = useCart();
@@ -25,8 +26,8 @@ const MyCart = () => {
               <th>#</th>
               <th>Food</th>
               <th>Item Name</th>
-              <th>Price</th>
-              <th>Action</th>
+              <th className="text-end">Price</th>
+              <th className="text-end">Action</th>
             </tr>
           </thead>
 
@@ -45,15 +46,11 @@ const MyCart = () => {
                   </div>
                 </td>
                 <td>
-                  Zemlak, Daniel and Leannon
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    Desktop Support Technician
-                  </span>
+                {item?.name}
                 </td>
-                <td>Purple</td>
-                <td>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <td className="text-end">${item.price}</td>
+                <td className="text-end">
+                  <button className="btn btn-ghost btn-lg "><MdDelete /></button>
                 </td>
               </tr>
             ))}
