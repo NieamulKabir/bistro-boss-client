@@ -8,6 +8,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -66,7 +67,7 @@ const Login = () => {
       <Helmet>
         <title>Bistro Boss | Login </title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 py-20">
         <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -131,7 +132,7 @@ const Login = () => {
               </div>
             </form>
 
-            <p className="text-center mb-8">
+            <p className="text-center">
               {" "}
               <small>
                 New Here?{" "}
@@ -140,6 +141,7 @@ const Login = () => {
                 </Link>
               </small>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>

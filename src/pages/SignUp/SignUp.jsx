@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const {
@@ -150,7 +151,7 @@ const SignUp = () => {
               </div>
             </form>
 
-            <p className="text-center mb-8">
+            <p className="text-center">
               {" "}
               <small>
                 Have an account?{" "}
@@ -159,6 +160,7 @@ const SignUp = () => {
                 </Link>
               </small>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>
