@@ -13,7 +13,7 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       const loggedInUser = result.user;
-      console.log(loggedInUser);
+
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
@@ -26,10 +26,8 @@ const SocialLogin = () => {
         body: JSON.stringify(saveUser),
       })
         .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            navigate(from, { replace: true });
-          }
+        .then(() => {
+          navigate(from, { replace: true });
         });
     });
   };
