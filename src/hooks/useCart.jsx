@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+
+import useAuth from "./useAuth";
+// import useAxiosSecure from "./useAxiosSecure";
 
 const useCart = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth()
   const token = localStorage.getItem("access-token");
   const { refetch, data: cart = [] } = useQuery({
     queryKey: ["carts", user?.email],
@@ -17,6 +18,8 @@ const useCart = () => {
         }
       );
       return response.json();
+      // const res = await useAxiosSecure.get(`/carts?email=${user.email}`);
+      // return res.data.data;
     },
   });
   return [cart, refetch];
