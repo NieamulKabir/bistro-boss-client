@@ -3,13 +3,16 @@ import { Helmet } from "react-helmet-async";
 import { FaUserShield } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
+  const[axiosSecure]=useAxiosSecure()
   const { data: users = [] ,refetch} = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:5000/users`);
-      return response.json();
+      // const response = await fetch(`http://localhost:5000/users`);
+      const response = await axiosSecure.get(`/users`);
+      return response.data;
     },
   });
 
