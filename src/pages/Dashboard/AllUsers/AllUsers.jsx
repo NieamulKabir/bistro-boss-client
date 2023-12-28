@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const { data: users = [], refetch } = useQuery({
+  const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const response = await fetch(`http://localhost:5000/users`);
@@ -13,7 +13,7 @@ const AllUsers = () => {
     },
   });
 
-  const handleDelete = (user) => {};
+  const handleDelete = () => {};
   const handleMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
       method: "PATCH",
