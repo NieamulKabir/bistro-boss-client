@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const { data: users = [] } = useQuery({
+  const { data: users = [] ,refetch} = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const response = await fetch(`http://localhost:5000/users`);
@@ -21,6 +21,7 @@ const AllUsers = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
+          refetch()
           Swal.fire({
             position: "top-top",
             icon: "success",
