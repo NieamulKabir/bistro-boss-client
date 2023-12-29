@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddItem = () => {
-  const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`;
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const {
     register,
@@ -21,7 +21,11 @@ const AddItem = () => {
     })
       .then((res) => res.json())
       .then((imgResponse) => {
-        console.log(imgResponse);
+        
+        if(imgResponse.success){
+            const imgUrl = imgResponse.data.display_url
+            console.log(imgUrl);
+        }
       });
   };
   console.log(errors);
