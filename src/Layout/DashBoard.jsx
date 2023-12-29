@@ -12,11 +12,12 @@ import { GiForkKnifeSpoon } from "react-icons/gi";
 import { IoMdMenu } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
   const [cart] = useCart();
 
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -50,9 +51,9 @@ const DashBoard = () => {
               </li>
 
               <li>
-                <NavLink to="/dashboard/reservation">
+                <NavLink to="/dashboard/addItem">
                   <GiForkKnifeSpoon />
-                  Add Items
+                  Add An Item
                 </NavLink>
               </li>
               <li>
