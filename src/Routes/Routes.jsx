@@ -54,11 +54,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "allUsers",
-        element: <AdminRoute><AllUsers /></AdminRoute>
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "addItem",
-        element: <AdminRoute><AddItem /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddItem />
+          </AdminRoute>
+        ),
       },
     ],
   },
