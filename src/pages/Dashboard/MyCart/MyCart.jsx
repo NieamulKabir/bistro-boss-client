@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -52,7 +53,7 @@ const MyCart = () => {
           {" "}
           Total Price: ${total}
         </h3>
-        <button className="btn btn-sm btn-warning">PAY</button>
+        <Link to="/dashboard/payment"><button className="btn btn-sm btn-warning">PAY</button></Link>
       </div>
       {/* table  */}
       <div className="overflow-x-auto">
