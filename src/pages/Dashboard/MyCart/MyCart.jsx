@@ -9,6 +9,7 @@ const MyCart = () => {
   console.log(cart);
 
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+  const price= parseFloat(total.toFixed(2))
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -51,7 +52,7 @@ const MyCart = () => {
         </h3>
         <h3 className="text-3xl bg-[#f0c688] px-3 py-1 rounded-lg">
           {" "}
-          Total Price: ${total}
+          Total Price: ${price}
         </h3>
         <Link to="/dashboard/payment"><button className="btn btn-sm btn-warning">PAY</button></Link>
       </div>
